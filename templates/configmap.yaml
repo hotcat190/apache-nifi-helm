@@ -33,6 +33,7 @@ data:
     pod_index=$(echo ${HOSTNAME} | sed -E 's/^.*([0-9]+)$/\1/g')
 
     prop_replace 'nifi.web.https.host' '0.0.0.0'
+    prop_replace 'nifi.web.https.application.host' "${host_name}"
     export NIFI_WEB_HTTPS_HOST='0.0.0.0'
     export NIFI_WEB_PROXY_HOST=" \
       ${host_name}, \
