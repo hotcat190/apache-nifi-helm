@@ -22,6 +22,8 @@ spec:
     - {{ include "nifi.fullname" . }}-http.{{ .Release.Namespace }}
     {{- include "nifi.hostNodeList" . | nindent 4 }}
     {{- include "nifi.ingressNodeList" . | nindent 4 }}
+  ipAddresses:
+    - 0.0.0.0
   usages:
     - server auth
     - client auth

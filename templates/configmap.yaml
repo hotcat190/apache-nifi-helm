@@ -34,11 +34,18 @@ data:
 
     prop_replace 'nifi.web.https.host' '0.0.0.0'
     prop_replace 'nifi.web.https.application.host' "${host_name}"
+    prop_replace 'nifi.cluster.node.address' "${host_name}"
+    prop_replace 'nifi.cluster.node.load.balance.address' "${host_name}"
     export NIFI_WEB_HTTPS_HOST='0.0.0.0'
+    export NIFI_WEB_HTTPS_APPLICATION_HOST="${host_name}"
+    export NIFI_CLUSTER_NODE_ADDRESS="${host_name}"
+    export NIFI_CLUSTER_NODE_LOAD_BALANCE_ADDRESS="${host_name}"
     export NIFI_WEB_PROXY_HOST=" \
       ${host_name}, \
       {{ .Values.ingress.hostName }}, \
       {{ .Values.ingress.hostName }}:{{ .Values.ports.https }}, \
+      keycloak.nifi.svc.cluster.local, \
+      keycloak.nifi.svc.cluster.local:80, \
       {{ include "nifi.siteToSiteHostName" . }}, \
       {{ include "nifi.siteToSiteHostName" . }}:443, \
       {{ printf "%s-${pod_index}.%s" (include "nifi.fullname" .) (include "nifi.siteToSiteHostName" .) }}, \
