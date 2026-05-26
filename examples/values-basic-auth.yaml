@@ -12,7 +12,7 @@ global:
   # This is the default fallback when OIDC and LDAP are disabled
   basic:
     admin_username: "admin"
-    admin_password: "your32characterpasswordhere123"  # Must be at least 12 characters
+    admin_password: "Password1234"  # Must be at least 12 characters
 
 # Resource configuration for single node
 resources:
