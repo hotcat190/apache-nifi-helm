@@ -39,8 +39,6 @@ annotations:
   images: |
     - name: nifi
       image: apache/nifi:latest
-    - name: zookeeper
-      image: bitnami/zookeeper:3.9.2-debian-12-r7
 dependencies:
   - condition: zookeeper.enabled
     name: zookeeper

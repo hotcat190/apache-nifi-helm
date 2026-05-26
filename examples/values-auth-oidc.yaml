@@ -21,11 +21,11 @@ global:
   # OpenID Connect (OIDC) Authentication
   oidc:
     enabled: true
-    oidc_url: "https://auth.example.com/.well-known/openid-configuration"
+    oidc_url: "http://keycloak.nifi.svc.cluster.local:80/realms/master/.well-known/openid-configuration"
     client_id: "nifi-client"
-    client_secret: "your-client-secret-here"
+    client_secret: "zYKiiNUtbXOYWZuBywQwR0NCqohshHbb"
     claim_identifying_user: "preferred_username"
-    initial_admin_identity: "admin@example.com"
+    initial_admin_identity: "admin@company.com"
 
 # Resource configuration for single node
 resources:

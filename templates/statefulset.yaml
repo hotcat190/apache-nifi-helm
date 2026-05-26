@@ -20,6 +20,8 @@ spec:
     metadata:
       labels:
         {{- include "nifi.selectorLabels" . | nindent 8 }}
+      annotations:
+        checksum/config: {{ include (print $.Template.BasePath "/configmap.yaml") . | sha256sum }}
     spec:
       terminationGracePeriodSeconds: {{ .Values.shutdown.podTerminationGracePeriodSeconds }}
       {{- if or .Values.persistence.takeOwnershipOnStartup .Values.extraTakeOwnershipPaths }}

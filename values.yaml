@@ -7,7 +7,7 @@ global:
     repository: public.ecr.aws/docker/library/busybox:stable
 
   nifi:
-    nodeCount: 1  # Default to 1 node since basic auth (default) doesn't support clustering
+    nodeCount: 3  # Default to 1 node since basic auth (default) doesn't support clustering
 
   serviceAccount:
     # Name of the existing service account to use. If not defined, one is created.
@@ -62,13 +62,12 @@ global:
   
   # OpenID Connect (OIDC) Authentication
   oidc:
-    enabled: false
-    oidc_url: ""
-    client_id: ""
-    client_secret: ""
-    client_secretFrom: ""
+    enabled: true
+    oidc_url: "http://keycloak.nifi.svc.cluster.local:80/realms/master/.well-known/openid-configuration"
+    client_id: "nifi-client"
+    client_secret: "zYKiiNUtbXOYWZuBywQwR0NCqohshHbb"
     claim_identifying_user: "preferred_username"
-    initial_admin_identity: ""
+    initial_admin_identity: "admin@company.com"
 
 image:
   repository: apache/nifi
@@ -295,7 +294,8 @@ customLibPath: ""
 
 # Extra config properties to set at runtime
 extraConfig:
-  nifiProperties: { }
+  nifiProperties: 
+    nifi.web.proxy.host: "example.com:8443"
   # nifi.cluster.node.connection.timeout: 5 secs
 
 extraEnv: [ ]

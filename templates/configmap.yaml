@@ -32,11 +32,12 @@ data:
     host_name="${HOSTNAME}.{{ include "nifi.fullname" . }}.{{ .Release.Namespace }}"
     pod_index=$(echo ${HOSTNAME} | sed -E 's/^.*([0-9]+)$/\1/g')
 
-    prop_replace 'nifi.web.https.host' "${host_name}"
-    export NIFI_WEB_HTTPS_HOST="${host_name}"
+    prop_replace 'nifi.web.https.host' '0.0.0.0'
+    export NIFI_WEB_HTTPS_HOST='0.0.0.0'
     export NIFI_WEB_PROXY_HOST=" \
       ${host_name}, \
       {{ .Values.ingress.hostName }}, \
+      {{ .Values.ingress.hostName }}:{{ .Values.ports.https }}, \
       {{ include "nifi.siteToSiteHostName" . }}, \
       {{ include "nifi.siteToSiteHostName" . }}:443, \
       {{ printf "%s-${pod_index}.%s" (include "nifi.fullname" .) (include "nifi.siteToSiteHostName" .) }}, \
