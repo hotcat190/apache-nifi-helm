@@ -26,22 +26,22 @@ resources:
 # Storage configuration
 volumeClaims:
   config:
-    storageClass: "gp3"
+    storageClass: ""
     size: "5Gi"
   state:
-    storageClass: "gp3"
+    storageClass: ""
     size: "10Gi"
   logs:
-    storageClass: "gp3"
+    storageClass: ""
     size: "2Gi"
   flowfile:
-    storageClass: "gp3"
+    storageClass: ""
     size: "10Gi"
   content:
-    storageClass: "gp3"
+    storageClass: ""
     size: "15Gi"
   provenance:
-    storageClass: "gp3"
+    storageClass: ""
     size: "10Gi"
 
 # Your specific ALB ingress configuration

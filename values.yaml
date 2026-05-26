@@ -42,7 +42,7 @@ global:
   # IMPORTANT: Basic auth only supports single-node deployment (nodeCount: 1)
   basic:
     admin_username: "admin"
-    admin_password: "your32characterpasswordhere123"  # Must be at least 12 characters
+    admin_password: "Password1234"  # Must be at least 12 characters
   
   # LDAP Authentication
   ldap:
@@ -86,7 +86,7 @@ shutdown:
 
 ui:
   refreshInterval: 10 sec
-  timeZone: "Asia/Calcutta" # IANA timezone identifier. Time is displayed using this timezone in the UI.
+  timeZone: "Asia/ho_chi_minh" # IANA timezone identifier. Time is displayed using this timezone in the UI.
   maxThreads: "" # Maximum number of Jetty threads to use for UI and HTTP site-to-site connections
 
 # Cluster Communication Configuration
@@ -196,7 +196,7 @@ stateManagement:
 zookeeper:
   ## Enable ZooKeeper deployment
   ## Automatically disabled when Kubernetes state management is used
-  enabled: true
+  enabled: false
   
   ## External ZooKeeper Configuration
   ## If enabled=false, provide external ZooKeeper connection details
@@ -344,22 +344,22 @@ umask: "" # "0002"
 
 volumeClaims:
   config:
-    storageClass: "gp3"
+    storageClass: ""
     size: "5Gi"
   state:
-    storageClass: "gp3"
+    storageClass: ""
     size: "10Gi"
   logs:
-    storageClass: "gp3"
+    storageClass: ""
     size: "2Gi"
   flowfile:
-    storageClass: "gp3"
+    storageClass: ""
     size: "10Gi"
   content:
-    storageClass: "gp3"
+    storageClass: ""
     size: "15Gi"
   provenance:
-    storageClass: "gp3"
+    storageClass: ""
     size: "10Gi"
 
 probeTimings:

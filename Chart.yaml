@@ -11,7 +11,7 @@ version: 1.0.0
 # incremented each time you make changes to the application. Versions are not expected to
 # follow Semantic Versioning. They should reflect the version the application is using.
 # It is recommended to use it with quotes.
-appVersion: "1.28.1"
+appVersion: "2.8.0"
 # Chart metadata
 home: https://github.com/sakkiii/apache-nifi-helm
 sources:
@@ -38,7 +38,7 @@ annotations:
   licenses: Apache-2.0
   images: |
     - name: nifi
-      image: apache/nifi:1.28.1
+      image: apache/nifi:latest
     - name: zookeeper
       image: bitnami/zookeeper:3.9.2-debian-12-r7
 dependencies:
